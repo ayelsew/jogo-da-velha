@@ -16,45 +16,12 @@ body {
 
 :root {
     --cell-hash-color-active: #dadada;
-    --cell-size: 26vw;
+    --cell-size: 25vw;
     --hash-color: #23c1c1;
     --stake-color: rgb(71, 226, 24);
 }
 
 /* # END variáveis # */
-
-/* // Extra small devices (portrait phones, less than 576px) */
-
-@media (max-width: 575.98px) {}
-
-/* // Small devices (landscape phones, 576px and up) */
-
-@media (min-width: 576px) and (max-width: 767.98px) {}
-
-/* // Medium devices (tablets, 768px and up) */
-
-@media (min-width: 768px) and (max-width: 991.98px) {}
-
-/* // Large devices (desktops, 992px and up) */
-
-@media (min-width: 992px) and (max-width: 1199.98px) {}
-
-/* // Extra large devices (large desktops, 1200px and up) */
-
-@media (min-width: 1200px) {}
-
-.container-hash {
-    height: fit-content;
-    margin: 0 auto;
-    width: fit-content;
-    display: grid;
-    grid-template-columns: var(--cell-size) var(--cell-size) var(--cell-size);
-    grid-template-rows: var(--cell-size) var(--cell-size) var(--cell-size);
-    justify-content: center;
-    border: solid transparent;
-    border-radius: 4%;
-    overflow: hidden;
-}
 
 /* celulas da hash */
 
@@ -140,7 +107,7 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    height: 60vh;
+    height: 70vh;
 }
 
 .scorePlayer {
@@ -252,3 +219,72 @@ body {
 .won-transversally-R {
     background-image: linear-gradient(135deg, white 45%, var(--stake-color) 50%, white 54%);
 }
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (min-width: 320px) and (max-width: 575.98px) {
+    .container-hash {
+        height: fit-content;
+        margin: 0 auto;
+        width: fit-content;
+        display: grid;
+        grid-template-columns: var(--cell-size) var(--cell-size) var(--cell-size);
+        grid-template-rows: var(--cell-size) var(--cell-size) var(--cell-size);
+        justify-content: center;
+        border: solid transparent;
+        border-radius: 4%;
+        overflow: hidden;
+    }
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    :root {
+        --cell-size: 14vw;
+    }
+    .container-hash {
+        height: fit-content;
+        margin: 0 auto;
+        width: fit-content;
+        display: grid;
+        grid-template-columns: var(--cell-size) var(--cell-size) var(--cell-size);
+        grid-template-rows: var(--cell-size) var(--cell-size) var(--cell-size);
+        justify-content: center;
+        border: solid transparent;
+        border-radius: 4%;
+        overflow: hidden;
+    }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    :root {
+        --cell-size: 11vw;
+    }
+    .msg-game {
+        padding: 5vh 0;
+    }
+    .space-game {
+        height: 70vh;
+    }
+    .container-hash {
+        height: fit-content;
+        margin: 0 auto;
+        width: fit-content;
+        display: grid;
+        grid-template-columns: var(--cell-size) var(--cell-size) var(--cell-size);
+        grid-template-rows: var(--cell-size) var(--cell-size) var(--cell-size);
+        justify-content: center;
+        border: solid transparent;
+        border-radius: 4%;
+        overflow: hidden;
+    }
+}
+
+/* // Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {}

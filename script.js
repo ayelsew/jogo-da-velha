@@ -186,4 +186,4 @@ class Game {
         this.Player[0].user.play();
     }
 }
-new Game();
+/* new Game(); */
