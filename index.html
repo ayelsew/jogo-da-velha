@@ -12,6 +12,24 @@
 </head>
 
 <body>
+    <div id="mododejogo" class="modal">
+        <div class="box">
+            <div class="titulo">
+                Modo de jogo
+            </div>
+            <div class="content">
+                <!-- Content here -->
+                <div class="modojogo">
+                    <button onclick="startGame(0)">User VS Bot</button>
+                    <button onclick="startGame(1)">Bot VS bot</button>
+                    <button onclick="startGame(2)">User VS User</button>
+                </div>
+            </div>
+            <div class="options">
+                <button class="cancel" onclick="open(location, '_self').close();">Sair</button>
+            </div>
+        </div>
+    </div>
     <div class="the-game">
         <div class="scoreboard">
             <div class="scorePlayer">

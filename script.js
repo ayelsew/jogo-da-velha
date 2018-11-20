@@ -134,14 +134,14 @@ class Display {
 
 
 class Game {
-    constructor() {
-        
-
+    constructor(Player0, Player1) {
         const Hash = new HashTag();
         const Show = new Display('display-msg-game');
+        document.getElementById('sbM0').innerText = Player0.marker;
+        document.getElementById('sbM1').innerText = Player1.marker;
         this.Player = [
-            { "user": new BotUser('Botuser One', 'X', 'cell-hash'), "score": document.getElementById('sbV0') },
-            { "user": new BotUser('Velhobot', 'O', 'cell-hash'), "score": document.getElementById('sbV1')}
+            { "user": Player0, "score": document.getElementById('sbV0') },
+            { "user": Player1, "score": document.getElementById('sbV1') }
         ];
 
         Hash.click = (trust, cell) => {
@@ -153,7 +153,7 @@ class Game {
                     console.log('O jogo acabou.');
                     Hash.wonStake(match);
                     Show.message(`${this.Player[0].user.name} ganhou!`);
-                    this.Player[0].score.innerText ++;
+                    this.Player[0].score.innerText++;
                     setTimeout(() => {
                         Hash.resetSchema()
                         this.nextPlayer();
@@ -186,10 +186,35 @@ class Game {
         this.Player[0].user.play();
     }
 }
-new Game();
+function hiddenModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'none';
+}
+
+function startGame(op) {
+    let Player0, Player1;
+    switch (op) {
+        case 0:
+            Player0 = new LocalUser('Player1', 'x');
+            Player1 = new BotUser('VelhoBot', 'B', 'cell-hash');
+            new Game(Player0, Player1);
+            break;
+        case 1:
+            Player0 = new BotUser('BotUser', 'B', 'cell-hash');
+            Player1 = new BotUser('VelhoBot', 'V', 'cell-hash');
+            new Game(Player0, Player1);
+            break;
+        case 2:
+            Player0 = new LocalUser('Player0', 'x');
+            Player1 = new LocalUser('Player1', 'o');
+            new Game(Player0, Player1);
+            break;
+    }
+    hiddenModal('mododejogo');
+}
 
 // Registra o service worker
-if ('serviceWorker' in navigator) {
+/* if ('serviceWorker' in navigator) {
     navigator.serviceWorker
     .register('./service-worker.js')
     .then(function() { 
@@ -197,4 +222,4 @@ if ('serviceWorker' in navigator) {
     }, function(error){
         console.error(error);
     });
-}
+} */
