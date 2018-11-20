@@ -1,23 +1,8 @@
-/* class Scoreboard {
-    constructor() {
-        this.sbM0 = document.getElementById('sbM0');
-        this.sbM1 = document.getElementById('sbM1');
-        this.sbV0 = document.getElementById('sbV0');
-        this.sbV1 = document.getElementById('sbV1');
-    }
-    set Label0(v) {
-        this.sbM0.innerHTML = v;
-    }
-    set Value0(v) {
-        this.sbV0.innerHTML = v;
-    }
-    set Label1(v) {
-        this.sbM1.innerHTML = v;
-    }
-    set Value1(v) {
-        this.sbV1.innerHTML = v;
-    }
-} */
+/**
+ * @description Esse objeto é responsavel pela manipulação da hash tag do jogo.
+ * @static 0.1
+ * @version 1.0
+ */
 class HashTag {
     constructor() {
         this.cell = document.getElementsByClassName('cell-hash');
@@ -39,7 +24,6 @@ class HashTag {
             [this.cell[0], this.cell[4], this.cell[8]],
             [this.cell[6], this.cell[4], this.cell[2]]
         ]
-
     }
     fullHash() {
         let full = true;
@@ -101,6 +85,7 @@ class HashTag {
             }
             if (match == 3) {
                 index = i;
+                console.log('Houve ganhador.');
                 break;
             }
         }
@@ -143,13 +128,12 @@ class Game {
             { "user": Player0, "score": document.getElementById('sbV0') },
             { "user": Player1, "score": document.getElementById('sbV1') }
         ];
-
         Hash.click = (trust, cell) => {
             console.log('-------------------------------------------');
             if (trust == this.Player[0].user.trust) {
                 Hash.cellMarker(cell, this.Player[0].user.marker);
                 let match = Hash.matchSchema(this.Player[0].user.marker);
-                if (match) {
+                if (match != undefined) {
                     console.log('O jogo acabou.');
                     Hash.wonStake(match);
                     Show.message(`${this.Player[0].user.name} ganhou!`);
@@ -212,7 +196,6 @@ function startGame(op) {
     }
     hiddenModal('mododejogo');
 }
-
 // Registra o service worker
 /* if ('serviceWorker' in navigator) {
     navigator.serviceWorker

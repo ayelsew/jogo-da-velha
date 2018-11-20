@@ -1,0 +1,14 @@
+{
+    "0.1.0": [
+        {
+            "title": "Marcador de match na horizontal em 45 graus",
+            "desc": "Ao realizar match na horizontal, o risco de marcação aparecia em 45 graus nas 3 celulas de qualquer posição korizontal",
+            "solve":"O degrade de background no CSS foi ajudtado para 0 grau"
+        },
+        {
+            "title":"Bug de match célula na primeira linha horizontal",
+            "desc":"Ao realizar match na primeira linha horizontal o sistema não validava o ganhador",
+            "solve":"Ao validar o retorno da função \"matchSchema()\", no momento de match dessa linha a função retorna 0 representando o index da linha. Em vez de validar se o retorno é booleano agora é validado se é diferente do tipo undefined"
+        }
+    ]
+}

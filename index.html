@@ -4,7 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>tic tac toe - Jogo da velha</title>
+    <title>Tic Tac Toe - Jogo da Velha</title>
+    <meta name="description" content="Jogo da velha ou Tic Tac Toe (in english) é um mini game de dois jogadores. O objetivo é sequenciar um determinado marcador sobre um tabuleiro 3x3 apenas nas seguinte posições: horizontais, verticais ou nas transversais." />
+    <meta property="og:url" content="https://wesleybu.github.io/jogo-da-velha/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Tic Tac Toe - Jogo da Velha" />
+    <meta property="og:description" content="Jogo da velha ou Tic Tac Toe (in english) é um mini game de dois jogadores. O objetivo é sequenciar um determinado marcador sobre um tabuleiro 3x3 apenas nas seguinte posições: horizontais, verticais ou nas transversais." />
+    <meta property="og:image" content="/imagem/icon.png" />
+
+
     <link rel="manifest" href="./manifest.json">
     <link rel="apple-touch-icon" sizes="152x152" href="./imagem/icon.png">
     <link rel="stylesheet" href="./style.css">
@@ -12,7 +20,7 @@
 </head>
 
 <body>
-    <div id="mododejogo" class="modal">
+    <div id="mododejogo" style="" class="modal">
         <div class="box">
             <div class="titulo">
                 Modo de jogo
@@ -27,6 +35,25 @@
             </div>
             <div class="options">
                 <button class="cancel" onclick="open(location, '_self').close();">Sair</button>
+            </div>
+        </div>
+    </div>
+    <div id="FixAndReleases" style="" class="modal">
+        <div class="box">
+            <div class="titulo">
+                Fix and releases v0.2.1
+            </div>
+            <div class="content">
+                <!-- Content here -->
+
+                <ul>
+                    <span>2 Fixs | 0 news</span>
+                    <li>Fix: Marcador de match na horizontal.</li>
+                    <li>Fix: Match ná primeira linha horizontal.</li>
+                </ul>
+            </div>
+            <div class="options">
+                <button class="ok" onclick="document.getElementById('FixAndReleases').style.display = 'none'">ok</button>
             </div>
         </div>
     </div>
@@ -55,6 +82,11 @@
                 <button class="cell-hash" data-index="8"></button>
             </div>
         </div>
+        <footer>
+            <a href="//github.com/wesleyBU/jogo-da-velha" title="link para projeto">Github/wesleyBU</a>
+            <br>
+            <span title="versão do projeto">Versão 0.2.1</span>
+        </footer>
     </div>
     <script src="./users.js"></script>
     <script src="./issue_game.js"></script>
