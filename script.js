@@ -24,6 +24,7 @@ class HashTag {
             [this.cell[0], this.cell[4], this.cell[8]],
             [this.cell[6], this.cell[4], this.cell[2]]
         ]
+        setTimeout(() => this.resetSchema(), 500);
     }
     fullHash() {
         let full = true;
@@ -117,9 +118,9 @@ class Display {
     }
 }
 
-
 class Game {
     constructor(Player0, Player1) {
+
         const Hash = new HashTag();
         const Show = new Display('display-msg-game');
         document.getElementById('sbM0').innerText = Player0.marker;
@@ -170,9 +171,16 @@ class Game {
         this.Player[0].user.play();
     }
 }
+
+let TheGame;
+
 function hiddenModal(id) {
     const modal = document.getElementById(id);
     modal.style.display = 'none';
+}
+function showModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = '';
 }
 
 function startGame(op) {
@@ -181,17 +189,17 @@ function startGame(op) {
         case 0:
             Player0 = new LocalUser('Player1', 'x');
             Player1 = new BotUser('VelhoBot', 'B', 'cell-hash');
-            new Game(Player0, Player1);
+            TheGame = new Game(Player0, Player1);
             break;
         case 1:
             Player0 = new BotUser('BotUser', 'B', 'cell-hash');
             Player1 = new BotUser('VelhoBot', 'V', 'cell-hash');
-            new Game(Player0, Player1);
+            TheGame = new Game(Player0, Player1);
             break;
         case 2:
             Player0 = new LocalUser('Player0', 'x');
             Player1 = new LocalUser('Player1', 'o');
-            new Game(Player0, Player1);
+            TheGame = new Game(Player0, Player1);
             break;
     }
     hiddenModal('mododejogo');

@@ -34,6 +34,7 @@
                 </div>
             </div>
             <div class="options">
+                <button class="fechar" onclick="hiddenModal('mododejogo')">Fechar</button>
                 <button class="cancel" onclick="open(location, '_self').close();">Sair</button>
             </div>
         </div>
@@ -41,15 +42,14 @@
     <div id="FixAndReleases" style="" class="modal">
         <div class="box">
             <div class="titulo">
-                Fix and releases v0.2.1
+                Fix and releases v0.2.2
             </div>
             <div class="content">
                 <!-- Content here -->
 
                 <ul>
-                    <span>2 Fixs | 0 news</span>
-                    <li>Fix: Marcador de match na horizontal.</li>
-                    <li>Fix: Match ná primeira linha horizontal.</li>
+                    <span>0 Fixs | 1 news</span>
+                    <li>New: Agora pode alterar modo durante partida.</li>
                 </ul>
             </div>
             <div class="options">
@@ -83,9 +83,11 @@
             </div>
         </div>
         <footer>
+            <button id="btnChangeMode" onclick="showModal('mododejogo')">Alterar modo</button>
+            <br>
             <a href="//github.com/wesleyBU/jogo-da-velha" title="link para projeto">Github/wesleyBU</a>
             <br>
-            <span title="versão do projeto">Versão 0.2.1</span>
+            <span title="versão do projeto">Versão 0.2.2</span>
         </footer>
     </div>
     <script src="./users.js"></script>

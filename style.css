@@ -257,7 +257,7 @@ body {
     display: flex;
 }
 
-.box>.options>.ok, .cancel {
+.box>.options>button {
     border: none;
     font-family: cursive;
     padding: .4rem;
@@ -270,6 +270,19 @@ body {
 
 .box>.options>.cancel {
     background-color: #fd4d4d;
+}
+
+.box>.options>.fechar {
+    background-color: #ff9f46;
+}
+
+#btnChangeMode {
+    border: none;
+    font-family: cursive;
+    padding: .4rem;
+    margin: 0.2rem;
+    margin-bottom: 1rem;
+    background-color: #5bc1ff;
 }
 
 /* ---------------------- */
@@ -288,11 +301,10 @@ body {
     border-radius: 4%;
 }
 
-
-
-footer{
+footer {
     text-align: center;
 }
+
 /* // Extra small devices (portrait phones, less than 576px) */
 
 @media (min-width: 320px) and (max-width: 575.98px) {
