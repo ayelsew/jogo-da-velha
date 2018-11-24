@@ -5,7 +5,7 @@ Jogo da velha ou Tic Tac Toe (in english) é um mini game de dois jogadores. O o
 Esse é um projeto experimental, no qual aplico meus atuais conhecimento e adiquiro novas habilidade testando recurso em Javascript, HTML5 e CSS3.
 
 ## Features
-### Versão 0.1.2
+### Versão 0.2.2
 <ul>
 <li>Alterar modo de jogo durante partida: Agora é possível mudar o modo de jogo no meio de uma partida.</li>
 </ul>
