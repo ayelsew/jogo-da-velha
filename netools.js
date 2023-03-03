@@ -34,6 +34,7 @@ module.exports = class {
 
             })
         })
+        
         /* Teste de ping automatizado */
         setInterval(() => {
             this._wss.clients.forEach(client => {

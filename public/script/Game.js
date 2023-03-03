@@ -16,7 +16,7 @@ class GameConfig {
             }
         })
     }
-    static URIServer() { return 'wss://herokuhashgame.herokuapp.com' };
+    static URIServer() { return `${/https:$/.test(document.location.protocol) ? "wss" : "ws"}://${document.location.host}` };
 
     static TimeToAwnserInvite() { return 14 };
 
@@ -465,17 +465,17 @@ class Game {
         this._hashtag.onClick = (target, trusted) => {
             if (playable) {
                 if (playerNow.isTrusted() == trusted) {
-                    window.navigator.vibrate([100,0]);
+                    window.navigator.vibrate([100, 0]);
                     this._hashtag.setInnerSchema(target, playerNow.getMarker());
                     if (!(playerNow instanceof PlayerOnline))
                         reportClickToRemote(target);
                     let hasWinner = this.hasWinner(playerNow.getMarker());
                     /* Verifica se o player atual ganhou */
                     if (typeof hasWinner == 'object') {
-                        window.navigator.vibrate([100,200,100,100,1000]);
+                        window.navigator.vibrate([100, 200, 100, 100, 1000]);
                         playable = false;
                         UI.showAlert(`${playerNow.getName()} venceu.`, 'alert-success');
-                        UI.tracerHash(hasWinner.sch, hasWinner.rulI, hasWinner.rul,2);
+                        UI.tracerHash(hasWinner.sch, hasWinner.rulI, hasWinner.rul, 2);
                         this.setPointSoreboard(playerNow.getMarker());
                         setTimeout(() => {
                             playable = true;
@@ -485,7 +485,7 @@ class Game {
                         }, 2000);
                         return;
                     }
-                    
+
                     if (this._hashtag.hashIsFull()) {
                         playable = false;
                         this.setPointSoreboard('v');
@@ -501,7 +501,7 @@ class Game {
                     nextPLayer();
                     playerNow.play();
                 } else {
-                    navigator.vibrate([200,200])
+                    navigator.vibrate([200, 200])
                     UI.showAlert(`${this._queuePlayers[1].getName()} espere suavez!`, 'alert-warning');
                 }
             }
