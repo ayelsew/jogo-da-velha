@@ -112,7 +112,7 @@ class UserInerface {
                     `;
                 },
                 footer: () => {
-                    return `<p>Desenvolvido por <a href="https://wnotmatter.tk" target="_blank">Wesley Notmatter</a></p>`;
+                    return `<p>Desenvolvido por <a href="https://leydev.com.br" target="_blank">Leydev</a></p>`;
                 },
                 controller: (op) => {
                     $('#BtnGameMode0').click(() => {
