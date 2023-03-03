@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jogo da velha PWA</title>
+    <meta name="description"
+        content="The hash game (famoso jogo da velha), é um game com 3 tipos de modalidade. Você pode jogar online com alguém, contra bot ou contra um player2 no mesmo celular">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <!-- META TAGs PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#6c757d">
+    <meta name="application-name" content="Hash Game">
+    <!-- Tags para compatibilidade em iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#6c757d">
+    <meta name="apple-mobile-web-app-title" content="Hash Game">
+    <link rel="apple-touch-icon" href="/image/logo-512.png">
+
+    <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126183986-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-126183986-3');
+    </script>
+
+</head>
+
+<body>
+    <div id="alertArea" style=" position: fixed;  bottom: 15%;    z-index: 99999;">
+        <!-- Mensagem aqui -->
+    </div>
+
+    <!-- START MODALS -->
+    <div id="ModalWhoAre" data-backdrop="static" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <!-- TITULO -->
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <!-- CORPO -->
+                </div>
+                <div class="modal-footer">
+                    <!-- FOOTER -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ModalGameMode" data-backdrop="static" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <!-- TITULO -->
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <!-- CORPO -->
+                </div>
+                <div class="modal-footer">
+                    <!-- FOOTER -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ModalSendInvite" data-backdrop="static" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ModalConfigPlayer2" data-backdrop="static" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <!-- TITULO -->
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <!-- BODY -->
+                </div>
+                <div class="modal-footer">
+                    <!-- FOOTER -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ModalReport" data-backdrop="static" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <!-- TITULO -->
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <!-- BODY -->
+                </div>
+                <div class="modal-footer">
+                    <!-- FOOTER -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ModalConfirmThing" data-backdrop="static" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <!-- TITULO -->
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <!-- BODY -->
+                </div>
+                <div class="modal-footer">
+                    <!-- FOOTER -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ModalShareContent" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-bottom" role="document">
+            <div class="modal-content" style="background: transparent; border: unset;">
+                <div class="modal-body text-center">
+                    <button class="btn-share-icon" data-type="messenger" title="Via messenger">
+                        <img src="/image/icon/messenger.svg" alt="Messenger">
+                    </button>
+                    <button class="btn-share-icon" data-type="telegram" title="Via telegram">
+                        <img src="/image/icon/telegram.svg" alt="Telegran">
+                    </button>
+                    <button class="btn-share-icon" data-type="whatsapp" title="Via whatsapp">
+                        <img src="/image/icon/whatsapp.svg" alt="Whatsapp">
+                    </button>
+                    <button class="btn-share-icon" data-type="email" title="Via email">
+                        <img src="/image/icon/gmail.svg" alt="Email">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ModalAreYouReady" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-bottom" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Pronto para jogar?</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <button id="BtnGoGame" class="btn-share-icon" data-type="telegram">
+                        Sim
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <!-- FOOTER -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ModalWellcome" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Bem vindo(a)</h5>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button> -->
+                </div>
+                <div class="modal-body">
+                    <p>Jogo da Velha.
+                        Versão: Alpha 1.2.33</p>
+
+                    <strong>*UPDATES v1.2*</strong>
+                    <ul>
+                        <li><b>App PWA:</b> Agora você pode instalar esse jogo no seu celular. basta adicionar na tela
+                            inicial como pede a mensagem ai em baixo. (testado em Android)</li>
+                        <li><b>Identificação randomica:</b> Agora você pode entrar com identificação aleatória, basta
+                            clicar em random.</li>
+                    </ul>
+                    <p>Esse é um projeto pessoal desenvolvido com fins estudantil e diversão, mas se rolar um graninha
+                        será melhor ainda &lt;3 </p>
+
+                    <p>A presente versão permite jogar local (2 pessoas no mesmo dispositivo), online e contra bot.</p>
+
+                    <p>Por ainda ser uma versão alpha haverá bugs escandalosos (para alguns), caso encontre algum
+                        reporte-o em vez de difamar.<br>
+                        Estou realizando correções graduais, então tenha paciência se seu bug favorito não ser corrigido
+                        de imediato.
+                    </p>
+
+                    <p>O jogo é meio "multiplataforma", podem jogar do seu ruindows, linux, android, <b>talvez
+                            iphone</b> (Usuário da maçã, favor testar e reportar).
+                        Atualmente roda no Chrome, Firefox e EDGE (testados até então). <strike>Se usarem internet
+                            explorer, denunciarei seu IP.</strike>
+                    </p>
+                    <p><b>Little spoiler:</b> para aqueles que curtiam o MSN, haverá recursos com referências
+                        nostágicas. EM BREVE. Se eu viver até lá.</p>
+
+                    <p>Flw. Boa diversão.</p>
+                    <address>
+                        Wesley Notmatter<br>
+                        <a href="https://wnotmatter.tk">Meu Site</a><br>
+                        <a href="https://github.com/wnotmatter">Github</a><br>
+                        <a href="https://www.linkedin.com/in/wnotmatter">Linkedin</a>
+                    </address>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ModalAcceptInvite" data-backdrop="static" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <!-- TITULO -->
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <!-- CORPO -->
+                </div>
+                <div class="modal-footer">
+                    <!-- FOOTER -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MODALS -->
+
+    <nav class="navbar navbar-light bg-light">
+        <a id="Score" class="navbar-brand" href="#">
+            <span class="marker1">
+                O
+            </span>
+            <span class="val1">
+                0
+            </span>
+            vs
+            <span class="val2">
+                0
+            </span>
+            <span class="marker2">
+                X
+            </span>
+            |
+            <span class="markerV">
+                Velhas
+            </span>
+            <span class="valV">
+                0
+            </span>
+        </a>
+        <span class="navbar-text">
+            <!-- <button id="BtnMenu" class="btn-menu btn-menu-close"></button> -->
+        </span>
+    </nav>
+    <div id="MenuLateral" class="menu-lateral menu-lateral-close">
+
+    </div>
+    <section>
+
+        <div id="waitPlayer" class="splashScreen" style="display: none">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <span class="textLoading">Carregando...</span>
+            </div>
+        </div>
+
+        <div id="scoreboard" class="container-placar d-flex text-center justify-content-center">
+
+        </div>
+        <section class="container-hashtag ">
+
+            <div class="hashtag">
+                <button class="hashtag-cell" tabindex="0"></button>
+                <button class="hashtag-cell" tabindex="1"></button>
+                <button class="hashtag-cell" tabindex="2"></button>
+
+                <button class="hashtag-cell" tabindex="3"></button>
+                <button class="hashtag-cell" tabindex="4"></button>
+                <button class="hashtag-cell" tabindex="5"></button>
+
+                <button class="hashtag-cell" tabindex="6"></button>
+                <button class="hashtag-cell" tabindex="7"></button>
+                <button class="hashtag-cell" tabindex="8"></button>
+            </div>
+
+
+        </section>
+        <button id="getoutPlay" class="btn btn-info btn-block" style="width: 90%;margin: auto;">
+            Sair da partida
+        </button>
+        <button id="ReportBugOrAbuse" class="btn btn-primary btn-block" style="width: 90%;margin: auto;">
+            Reportar
+        </button>
+    </section>
+
+    <script defer src="/vendor/jquery/jquery.min.js"></script>
+    <script defer src="/vendor/bootstrap/bootstrap.min.js"></script>
+    <script defer src="/script/UserInterface.js"></script>
+    <script defer src="/script/Network.js"></script>
+    <script defer src="/script/Hashtag.js"></script>
+    <script defer src="/script/Players.js"></script>
+    <script defer src="/script/Game.js"></script>
+    <script>
+        // Registra o service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('./pwa-worker.js')
+                .then(function (w) {
+                    console.log('Service Worker Registered');
+                }, function (error) {
+                    console.error(error);
+                });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+{
+    "name": "The Hash Game",
+    "short_name": "Hash Game",
+    "description": "The hash game (famoso jogo da velha), é um game com 3 tipos de modalidade. Você pode jogar online com alguém, contra bot ou contra um player2 no mesmo celular",
+    "icons": [
+        {
+            "src": "image/logo-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "image/logo-256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "image/logo-128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#6c757d",
+    "theme_color": "#6c757d"
+}

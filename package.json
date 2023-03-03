@@ -1,0 +1,21 @@
+{
+  "name": "herokuhashgame",
+  "version": "1.0.0",
+  "description": "server websocket for hashgame",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "jquery": "^3.4.1",
+    "node-static": "^0.7.11",
+    "ws": "^7.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "wesleyBU",
+  "license": "UNLICENSED"
+}

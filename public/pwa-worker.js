@@ -1,11 +1,16 @@
-
-let cacheName = 'meu-app-cache-v1';
+let cacheName = 'app-cache-v1';
 let filesToCache = [
     '/',
     '/index.html',
-    '/users.js',
-    '/style.css',
-    '/script.js'
+    '/script/Game.js',
+    '/script/Hashtag.js',
+    '/script/Network.js',
+    '/script/Players.js',
+    '/script/UserInterface.js',
+    '/css/style.css',
+    '/vendor/jquery/jquery.min.js',
+    '/vendor/bootstrap/bootstrap.min.js',
+    '/vendor/bootstrap/bootstrap.min.css',
 ];
 
 self.addEventListener('install', function(event) {
